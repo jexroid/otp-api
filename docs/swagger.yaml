@@ -1,0 +1,463 @@
+basePath: /
+definitions:
+  api.LoginRequest:
+    properties:
+      password:
+        type: string
+      phone:
+        type: integer
+    type: object
+  api.LoginResponse:
+    properties:
+      message:
+        type: string
+      ok:
+        type: boolean
+      token:
+        type: string
+      valid:
+        type: boolean
+    type: object
+  api.OTPRequest:
+    properties:
+      phone:
+        type: integer
+    type: object
+  api.OTPResponse:
+    properties:
+      message:
+        type: string
+      ok:
+        type: boolean
+    type: object
+  api.OTPVerifyRequest:
+    properties:
+      code:
+        type: string
+      phone:
+        type: integer
+    required:
+    - code
+    type: object
+  api.OTPVerifyResponse:
+    properties:
+      error:
+        type: string
+      ok:
+        type: boolean
+      token:
+        type: string
+    type: object
+  api.RegisterResponse:
+    properties:
+      message:
+        type: string
+      ok:
+        type: boolean
+      userExist:
+        type: boolean
+    type: object
+  api.Userdetail:
+    description: User details structure
+    properties:
+      firstname:
+        description: |-
+          @Description User's first name
+          @Example John
+        type: string
+      lastname:
+        description: |-
+          @Description User's last name
+          @Example Doe
+        type: string
+      phone:
+        description: |-
+          @Description User's phone number
+          @Example 1234567890
+        type: integer
+    type: object
+  api.ValidateRequest:
+    description: Token validation request payload
+    properties:
+      token:
+        type: string
+    type: object
+  api.ValidateResponse:
+    description: Token validation response with user details
+    properties:
+      exp:
+        type: boolean
+      ok:
+        type: boolean
+      payload:
+        type: string
+      user:
+        $ref: '#/definitions/api.Userdetail'
+    type: object
+  github_com_jexroid_gopi_pkg_models.User:
+    properties:
+      code:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      expiresAt:
+        type: string
+      firstname:
+        type: string
+      id:
+        type: integer
+      lastname:
+        type: string
+      password:
+        type: string
+      phone:
+        type: integer
+      updatedAt:
+        type: string
+      used:
+        type: boolean
+      uuid:
+        type: integer
+    type: object
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+host: localhost:8000
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server for Gopi API.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Gopi API
+  version: "1.0"
+paths:
+  /auth/logout:
+    get:
+      consumes:
+      - application/json
+      description: Logout user by clearing authentication cookie
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: cookie deleted
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: User logout
+      tags:
+      - auth
+  /auth/otp:
+    post:
+      consumes:
+      - application/json
+      description: Generate and send OTP to phone number for authentication
+      parameters:
+      - description: OTP Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api.OTPRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.OTPResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.OTPResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.OTPResponse'
+      summary: Request OTP
+      tags:
+      - auth
+  /auth/signin:
+    post:
+      consumes:
+      - application/json
+      description: Authenticate user with phone and password
+      parameters:
+      - description: Login Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.LoginResponse'
+        "406":
+          description: Not Acceptable
+          schema:
+            $ref: '#/definitions/api.LoginResponse'
+      summary: User signin
+      tags:
+      - auth
+  /auth/signup:
+    post:
+      consumes:
+      - application/json
+      description: Register a new user with phone and password
+      parameters:
+      - description: User Registration Data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_jexroid_gopi_pkg_models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.RegisterResponse'
+        "406":
+          description: Not Acceptable
+          schema:
+            $ref: '#/definitions/api.RegisterResponse'
+        "500":
+          description: internal error
+          schema:
+            type: string
+      summary: User registration
+      tags:
+      - auth
+  /auth/verify-otp:
+    post:
+      consumes:
+      - application/json
+      description: Verify OTP code and authenticate user
+      parameters:
+      - description: OTP Verification Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api.OTPVerifyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.OTPVerifyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.OTPVerifyResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/api.OTPVerifyResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.OTPVerifyResponse'
+      summary: Verify OTP
+      tags:
+      - auth
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of all users
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of users
+          schema:
+            items:
+              $ref: '#/definitions/github_com_jexroid_gopi_pkg_models.User'
+            type: array
+        "500":
+          description: Internal server error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get all users
+      tags:
+      - Users
+  /users/{uuid}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a user by their UUID
+      parameters:
+      - description: User UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: User deleted successfully
+        "404":
+          description: User not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal server error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a user
+      tags:
+      - Users
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a single user by their UUID
+      parameters:
+      - description: User UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User found
+          schema:
+            $ref: '#/definitions/github_com_jexroid_gopi_pkg_models.User'
+        "404":
+          description: User not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal server error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get a user by ID
+      tags:
+      - Users
+    put:
+      consumes:
+      - application/json
+      description: Update an existing user's information
+      parameters:
+      - description: User UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      - description: User data to update
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_jexroid_gopi_pkg_models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User updated successfully
+          schema:
+            $ref: '#/definitions/github_com_jexroid_gopi_pkg_models.User'
+        "400":
+          description: Invalid request body
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: User not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal server error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update a user
+      tags:
+      - Users
+  /validate:
+    post:
+      consumes:
+      - application/json
+      description: Validates a user's authentication token and returns user details
+        if valid
+      parameters:
+      - description: Validate Request
+        in: body
+        name: validateRequest
+        required: true
+        schema:
+          $ref: '#/definitions/api.ValidateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Token is valid and user details returned
+          schema:
+            $ref: '#/definitions/api.ValidateResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/api.ValidateResponse'
+        "405":
+          description: Method not allowed
+          schema:
+            $ref: '#/definitions/api.ValidateResponse'
+        "406":
+          description: Token validation failed or invalid data
+          schema:
+            $ref: '#/definitions/api.ValidateResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Validate user token
+      tags:
+      - Authentication
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

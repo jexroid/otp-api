@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gopi
+spec:
+  selector:
+    matchLabels:
+      app: gopi
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: gopi
+    spec:
+      containers:
+        - name: gopi
+          image: jextoid/gauth-gopi
+          ports:
+            - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gopi
+spec:
+  selector:
+    app: gopi
+  ports:
+    - protocol: TCP
+      port: 8000
+

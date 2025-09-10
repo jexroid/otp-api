@@ -1,0 +1,1160 @@
+{
+	"info": {
+		"_postman_id": "bd0a6406-2834-48e5-9c1c-811a666bfdc8",
+		"name": "go Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29528076"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signin",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjQzMzc3NjksInBob25lIjo5ODkxNzQzMzAyMTQsInV1aWQiOjI0NzQyODY3NzR9.BhaOL70x0pjMgImTLTExWadakjsYpW7RYdl2QUHhnTg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": 989174399999,\r\n    \"password\": \"amir2290\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/signin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							],
+							"query": [
+								{
+									"key": "Coo",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invalid user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjQzMzc3NjksInBob25lIjo5ODkxNzQzMzAyMTQsInV1aWQiOjI0NzQyODY3NzR9.BhaOL70x0pjMgImTLTExWadakjsYpW7RYdl2QUHhnTg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": 989174399999,\r\n    \"password\": \"amir2290\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/signin",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"signin"
+									],
+									"query": [
+										{
+											"key": "Coo",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:47:53 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Ok\": true,\n    \"UserExist\": false,\n    \"Message\": \"User does not exist. sign up\"\n}"
+						},
+						{
+							"name": "valid user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjQzMzc3NjksInBob25lIjo5ODkxNzQzMzAyMTQsInV1aWQiOjI0NzQyODY3NzR9.BhaOL70x0pjMgImTLTExWadakjsYpW7RYdl2QUHhnTg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": 989174330456,\r\n    \"password\": \"amir2290\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/signin",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"signin"
+									],
+									"query": [
+										{
+											"key": "Coo",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "identity=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjAxMDc3MjIsInBob25lIjo5ODkxNzQzMzA0NTYsInV1aWQiOjI0MTE5MTM5NTF9.XkO7TXIy6ANHF1CK1zBV1TN-PJHL5CqNLe4nfOATh9w; Path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:48:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Ok\": true,\n    \"Valid\": true,\n    \"Token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjAxMDc3MjIsInBob25lIjo5ODkxNzQzMzA0NTYsInV1aWQiOjI0MTE5MTM5NTF9.XkO7TXIy6ANHF1CK1zBV1TN-PJHL5CqNLe4nfOATh9w\",\n    \"Message\": \"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "validate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjU1MjA4MDIsInBob25lIjo5ODkxNzExMjI1NjIsInV1aWQiOjI3NTYzNDM1Mjl9.R9I6x3IHYlTzolgT-O2n1SmbtLPi-7oJE_AGWpIdcYU\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/validate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"validate"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "expired token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjU1MjA4MDIsInBob25lIjo5ODkxNzExMjI1NjIsInV1aWQiOjI3NTYzNDM1Mjl9.R9I6x3IHYlTzolgT-O2n1SmbtLPi-7oJE_AGWpIdcYU\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/validate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"validate"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:45:40 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Ok\": false,\n    \"Payload\": \"\",\n    \"Exp\": false,\n    \"User\": {\n        \"Firstname\": \"\",\n        \"Lastname\": \"\",\n        \"Phone\": 0\n    }\n}"
+						},
+						{
+							"name": "valid token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjAxMDcyODEsInBob25lIjo5ODkxNzEyMzEyMzQsInV1aWQiOjB9.kmjUxgXOmvGQKJd4aeG5LfoMiaZLKGRguiUsNjuvVFg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/validate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"validate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:45:59 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Ok\": true,\n    \"Payload\": \"\",\n    \"Exp\": false,\n    \"User\": {\n        \"Firstname\": \"\",\n        \"Lastname\": \"\",\n        \"Phone\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response body contains 'Ok' field with a boolean value\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.have.property('Ok').that.is.a('boolean');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response body contains 'Msg' field with a string value\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.have.property('Msg').that.is.a('string');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response body contains UserExist field with a boolean value\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.have.property('UserExist').that.is.a('boolean');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7Im5hbWUiOiJzYWxhbSIsInBob25lIjoiMDkxNzIxMjEyIn0sImlhdCI6MTcyMjc4OTEzOX0.c1dx5VywyRYvROasQC5vnbOqM1Bjkc8Gqp8-1Jl2DkA",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": 989174330456,\r\n    \"firstname\": \"امیررضاشسیشسی\",\r\n    \"lastname\": \"سیشبسیشبفرزان\",\r\n    \"password\": \"amir2290\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7Im5hbWUiOiJzYWxhbSIsInBob25lIjoiMDkxNzIxMjEyIn0sImlhdCI6MTcyMjc4OTEzOX0.c1dx5VywyRYvROasQC5vnbOqM1Bjkc8Gqp8-1Jl2DkA",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": 989174330456,\r\n    \"firstname\": \"amirreza\",\r\n    \"lastname\": \"farzan\",\r\n    \"password\": \"amir2290\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/signup",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "identity=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjAxMDQ5NTUsInBob25lIjo5ODkxNzQzMzA0NTYsInV1aWQiOjI0MTE5MTM5NTF9.XgPhTY8bcyKHM0J1lmu0gr-l50-J19aZaM63lM_cAxk; Path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:02:35 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Ok\": true,\n    \"UserExist\": false,\n    \"Message\": \"User successfully registered! use OTP to verify\"\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "logout",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/logout",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "identity=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:45:24 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "cookie deleted"
+						}
+					]
+				},
+				{
+					"name": "otp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7Im5hbWUiOiJzYWxhbSIsInBob25lIjoiMDkxNzIxMjEyIn0sImlhdCI6MTcyMjc4OTEzOX0.c1dx5VywyRYvROasQC5vnbOqM1Bjkc8Gqp8-1Jl2DkA",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": 989174330456\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/otp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"otp"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "otp",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "3"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "2"
+								},
+								{
+									"key": "X-Ratelimit-Reset",
+									"value": "600"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:20:31 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"OTP sent successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "verify otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": 989174330456,\r\n    \"code\": \"726190\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/verify-otp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"verify-otp"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": 989171231234,\r\n    \"code\": \"578472\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/verify-otp",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"verify-otp"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "identity=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjAxMDcyODEsInBob25lIjo5ODkxNzEyMzEyMzQsInV1aWQiOjB9.kmjUxgXOmvGQKJd4aeG5LfoMiaZLKGRguiUsNjuvVFg; Path=/; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:41:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "168"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjAxMDcyODEsInBob25lIjo5ODkxNzEyMzEyMzQsInV1aWQiOjB9.kmjUxgXOmvGQKJd4aeG5LfoMiaZLKGRguiUsNjuvVFg\"\n}"
+						}
+					]
+				}
+			],
+			"description": "authentication REST Api endpoints"
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Get all user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/cars",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all cars with pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user?limit=10&page=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 15:50:44 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "647"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"users\": [\n        {\n            \"ID\": 9,\n            \"DeletedAt\": null,\n            \"UUID\": 0,\n            \"phone\": 989174331456,\n            \"firstname\": \"\",\n            \"lastname\": \"\",\n            \"password\": \"\",\n            \"Code\": \"632789\",\n            \"ExpiresAt\": \"2025-09-10T18:11:16.551136+03:30\",\n            \"Used\": false,\n            \"CreatedAt\": \"2025-09-10T18:08:59.658452+03:30\",\n            \"UpdatedAt\": \"2025-09-10T18:09:16.551136+03:30\"\n        },\n        {\n            \"ID\": 10,\n            \"DeletedAt\": null,\n            \"UUID\": 0,\n            \"phone\": 989171231234,\n            \"firstname\": \"asad\",\n            \"lastname\": \"\",\n            \"password\": \"\",\n            \"Code\": \"578472\",\n            \"ExpiresAt\": \"2025-09-10T18:12:23.327453+03:30\",\n            \"Used\": true,\n            \"CreatedAt\": \"2025-09-10T18:09:42.6733+03:30\",\n            \"UpdatedAt\": \"2025-09-10T18:14:40.117473+03:30\"\n        }\n    ],\n    \"pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 2,\n        \"total_pages\": 1,\n        \"has_next\": false,\n        \"has_prev\": false\n    }\n}"
+						},
+						{
+							"name": "Get all cars",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 15:52:23 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "647"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"users\": [\n        {\n            \"ID\": 9,\n            \"DeletedAt\": null,\n            \"UUID\": 0,\n            \"phone\": 989174331456,\n            \"firstname\": \"\",\n            \"lastname\": \"\",\n            \"password\": \"\",\n            \"Code\": \"632789\",\n            \"ExpiresAt\": \"2025-09-10T18:11:16.551136+03:30\",\n            \"Used\": false,\n            \"CreatedAt\": \"2025-09-10T18:08:59.658452+03:30\",\n            \"UpdatedAt\": \"2025-09-10T18:09:16.551136+03:30\"\n        },\n        {\n            \"ID\": 10,\n            \"DeletedAt\": null,\n            \"UUID\": 0,\n            \"phone\": 989171231234,\n            \"firstname\": \"asad\",\n            \"lastname\": \"\",\n            \"password\": \"\",\n            \"Code\": \"578472\",\n            \"ExpiresAt\": \"2025-09-10T18:12:23.327453+03:30\",\n            \"Used\": true,\n            \"CreatedAt\": \"2025-09-10T18:09:42.6733+03:30\",\n            \"UpdatedAt\": \"2025-09-10T18:14:40.117473+03:30\"\n        }\n    ],\n    \"pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 2,\n        \"total_pages\": 1,\n        \"has_next\": false,\n        \"has_prev\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UUID\": 6971,\r\n    \"License\": \"sdadsadsa\",\r\n    \"Year\": 1212\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cars/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cars",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete car",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"UUID\": 6971,\r\n    \"License\": \"sdadsadsa\",\r\n    \"Year\": 1212\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:43:31 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UUID\": 1,\r\n    \"License\": \"asddsads\",\r\n    \"Year\": 1212\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cars/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cars",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Car",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Firstname\": \"asad\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:44:40 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "272"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"ID\":10,\"DeletedAt\":null,\"UUID\":0,\"phone\":989171231234,\"firstname\":\"asad\",\"lastname\":\"\",\"password\":\"\",\"Code\":\"578472\",\"ExpiresAt\":\"2025-09-10T18:12:23.327453+03:30\",\"Used\":true,\"CreatedAt\":\"2025-09-10T18:09:42.6733+03:30\",\"UpdatedAt\":\"2025-09-10T18:14:40.1174738+03:30\"}\n"
+						}
+					]
+				},
+				{
+					"name": "Get a User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/cars/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cars",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 10 Sep 2025 14:44:59 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "271"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"ID\":10,\"DeletedAt\":null,\"UUID\":0,\"phone\":989171231234,\"firstname\":\"asad\",\"lastname\":\"\",\"password\":\"\",\"Code\":\"578472\",\"ExpiresAt\":\"2025-09-10T18:12:23.327453+03:30\",\"Used\":true,\"CreatedAt\":\"2025-09-10T18:09:42.6733+03:30\",\"UpdatedAt\":\"2025-09-10T18:14:40.117473+03:30\"}\n"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "url",
+			"value": "http://localhost:8000"
+		}
+	]
+}
