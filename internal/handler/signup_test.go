@@ -96,6 +96,5 @@ func TestSignup(t *testing.T) {
 	assert.Nil(t, err)
 	t.Log(string(jsonresponse))
 	assert.Contains(t, string(jsonresponse), `"Ok":true`)
-	assert.Contains(t, string(jsonresponse), `"Token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9`)
 	assert.Contains(t, string(jsonresponse), `"UserExist":false`)
 }

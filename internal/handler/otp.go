@@ -91,7 +91,7 @@ func (db Database) OTP(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	logrus.Infof("OTP for %s: %s (Expires at: %s)", form.Phone, otpCode, user.ExpiresAt.Format(time.RFC3339))
+	logrus.Infof("Sending OTP to %d", form.Phone)
 
 	json.NewEncoder(w).Encode(api.OTPResponse{Ok: true, Message: "OTP sent successfully"})
 }

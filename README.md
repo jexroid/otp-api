@@ -16,7 +16,7 @@ there is a JSON file named [go Auth.postman_collection](https://github.com/jexro
 tests are available and can be use with Makefile also project will be tested using CI/CD features.
 
 ## Docker image
-the Docker image of this file is available at [dockerhub](https://hub.docker.com/repository/docker/jextoid/gauth-gopi/general)
+the Docker image of this file is available at with kubernetes support
 
 ## Security features:
  - HTTP headers

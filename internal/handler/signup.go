@@ -3,7 +3,6 @@ package handler
 import (
 	"encoding/json"
 	"net/http"
-	"os"
 
 	"github.com/jexroid/gopi/api"
 	"github.com/jexroid/gopi/pkg"
@@ -83,19 +82,11 @@ func (db Database) Signup(w http.ResponseWriter, r *http.Request) {
 		}
 		logrus.Error(result.Error)
 	}
-	jwt := pkg.CreateToken(user.UUID, user.Phone)
 
-	cookie := &http.Cookie{
-		Name:     "identity",
-		Value:    jwt,
-		Path:     "/",
-		HttpOnly: true,
-		Secure:   os.Getenv("GO_ENV") == "production",
-		SameSite: http.SameSiteLaxMode,
-	}
-
-	http.SetCookie(w, cookie)
-	jsonResponse, _ := json.Marshal(&api.RegisterResponse{Ok: true, Message: "User successfully registered! use OTP to verify"})
+	jsonResponse, _ := json.Marshal(&api.RegisterResponse{
+		Ok:      true,
+		Message: "User successfully registered! use OTP to verify",
+	})
 	w.Write(jsonResponse)
 	return
 }

@@ -50,6 +50,7 @@ type RegisterResponse struct {
 	Ok        bool
 	UserExist bool
 	Message   string
+	Token     string `json:"Token,omitempty"`
 }
 
 type LoginResponse struct {
